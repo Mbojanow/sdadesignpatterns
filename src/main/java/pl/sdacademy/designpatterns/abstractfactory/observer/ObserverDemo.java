@@ -16,6 +16,5 @@ public class ObserverDemo {
     subject.valueChanged(5);
     subject.valueChanged(4);
     subject.valueChanged(-15);
-    Observable
   }
 }
