@@ -6,7 +6,7 @@ public class AbstractFactoryDemo {
 
     public static void main(final String[] args) {
 
-        final Car car = (Car)FactoryProvider.getFactory(FactoryCategory.CAR).create("TC");
+        final Car car = (Car)FactoryProvider.getFactory(FactoryCategory.SEDANS).create("TC");
 
         System.out.println(car.getModelName());
     }

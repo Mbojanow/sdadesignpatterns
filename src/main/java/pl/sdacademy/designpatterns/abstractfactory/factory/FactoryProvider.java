@@ -1,15 +1,15 @@
 package pl.sdacademy.designpatterns.abstractfactory.factory;
 
-import pl.sdacademy.designpatterns.abstractfactory.factory.car.CarFactory;
-import pl.sdacademy.designpatterns.abstractfactory.factory.pizza.PizzaFactory;
+import pl.sdacademy.designpatterns.abstractfactory.factory.car.CombiCarFactory;
+import pl.sdacademy.designpatterns.abstractfactory.factory.car.SedanCarFactory;
 
 public class FactoryProvider {
 
     public static AbstractFactory getFactory(final FactoryCategory category) {
-        if (category == FactoryCategory.CAR) {
-            return new CarFactory();
-        } else if (category == FactoryCategory.PIZZA) {
-            return new PizzaFactory();
+        if (category == FactoryCategory.SEDANS) {
+            return new SedanCarFactory();
+        } else if (category == FactoryCategory.COMBIS) {
+            return new CombiCarFactory();
         }
         throw new RuntimeException("No factory implementation for given type");
     }

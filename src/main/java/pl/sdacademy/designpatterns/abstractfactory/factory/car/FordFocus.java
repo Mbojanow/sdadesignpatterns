@@ -5,11 +5,13 @@ class FordFocus implements Car {
     private EngineType type;
     private Double engineVolume;
     private int cylinderNum;
+    private BodyType bodyType;
 
-    public FordFocus(final EngineType type, final Double engineVolume, final int cylinderNum) {
+    public FordFocus(final EngineType type, final Double engineVolume, final int cylinderNum, final BodyType bodyType) {
         this.type = type;
         this.engineVolume = engineVolume;
         this.cylinderNum = cylinderNum;
+        this.bodyType = bodyType;
     }
 
     @Override
@@ -28,7 +30,12 @@ class FordFocus implements Car {
     }
 
     @Override
-    public int getCylidersNum() {
+    public int getCylindersNum() {
         return cylinderNum;
+    }
+
+    @Override
+    public BodyType getBodyType() {
+        return bodyType;
     }
 }

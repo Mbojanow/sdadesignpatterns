@@ -4,5 +4,6 @@ public interface Car {
     String getModelName();
     EngineType getType();
     Double getEngineVolume();
-    int getCylidersNum();
+    int getCylindersNum();
+    BodyType getBodyType();
 }

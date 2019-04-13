@@ -2,18 +2,18 @@ package pl.sdacademy.designpatterns.abstractfactory.factory.car;
 
 import pl.sdacademy.designpatterns.abstractfactory.factory.AbstractFactory;
 
-public class CarFactory implements AbstractFactory<Car> {
+public class SedanCarFactory implements AbstractFactory<Car> {
 
     private Car createCorollaClassic() {
-        return new ToyotaCorolla(EngineType.GASOLINE_NATURALLY_ASPIRATED, 1.6D, 4);
+        return new ToyotaCorolla(EngineType.GASOLINE_NATURALLY_ASPIRATED, 1.6D, 4, BodyType.SEDAN);
     }
 
     private Car createTubroCorolla() {
-        return new ToyotaCorolla(EngineType.GASOLINE_TURBO, 1.2, 4);
+        return new ToyotaCorolla(EngineType.GASOLINE_TURBO, 1.2, 4, BodyType.SEDAN);
     }
 
     private Car createFordFocus() {
-        return new FordFocus(EngineType.GASOLINE_TURBO, 1.5, 4);
+        return new FordFocus(EngineType.GASOLINE_TURBO, 1.5, 4, BodyType.SEDAN);
     }
 
     @Override

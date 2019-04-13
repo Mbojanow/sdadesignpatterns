@@ -5,11 +5,13 @@ class ToyotaCorolla implements Car {
     private EngineType type;
     private Double engineVolume;
     private int cylinderNum;
+    private BodyType bodyType;
 
-    public ToyotaCorolla(final EngineType type, final Double engineVolume, final int cylinderNum) {
+    public ToyotaCorolla(final EngineType type, final Double engineVolume, final int cylinderNum, final BodyType bodyType) {
         this.type = type;
         this.engineVolume = engineVolume;
         this.cylinderNum = cylinderNum;
+        this.bodyType = bodyType;
     }
 
     @Override
@@ -28,7 +30,12 @@ class ToyotaCorolla implements Car {
     }
 
     @Override
-    public int getCylidersNum() {
+    public int getCylindersNum() {
         return cylinderNum;
+    }
+
+    @Override
+    public BodyType getBodyType() {
+        return bodyType;
     }
 }
