@@ -1,5 +1,6 @@
 package pl.sdacademy.designpatterns.proxy.security;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
