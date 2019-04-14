@@ -19,6 +19,5 @@ public class BuilderDemo {
         .build();
 
 
-    Book.builder().author("Michal").pagesNum(13).build();
   }
 }
