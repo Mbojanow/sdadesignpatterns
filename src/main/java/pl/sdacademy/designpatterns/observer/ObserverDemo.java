@@ -5,9 +5,11 @@ public class ObserverDemo {
     final Subject subject = new Subject();
     final Observer o1 = new ConcreteValueObserver(subject);
     final Observer o2 = new ValueLoweredObserver(subject);
+    final Observer o3 = new ByTenChangedObserver(subject);
 
     subject.addObserver(o1);
     subject.addObserver(o2);
+    subject.addObserver(o3);
 
     subject.modifyValue(1);
     subject.modifyValue(4);
