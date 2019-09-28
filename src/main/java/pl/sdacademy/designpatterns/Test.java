@@ -5,11 +5,10 @@ import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 import java.util.Date;
 
+import pl.sdacademy.designpatterns.proxy.security.Person;
+
 public class Test {
 
   public static void main(final String[] args) {
-    final String s = LocalDateTime.ofEpochSecond(new Date().getTime() / 1000L, 0, ZoneOffset.UTC).toString();
-    System.out.println(s);
-    final LocalDateTime now = LocalDateTime.now();
   }
 }

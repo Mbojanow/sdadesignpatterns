@@ -1,8 +1,10 @@
 package pl.sdacademy.designpatterns.proxy;
 
 import java.util.Arrays;
+import java.util.Base64;
 import java.util.Random;
 import java.util.UUID;
+import java.util.stream.Stream;
 
 public class ExternalServerProxyLoader implements ConfigLoader {
 
@@ -25,7 +27,7 @@ public class ExternalServerProxyLoader implements ConfigLoader {
     // easy way configuration = UUID.randomUUID().toString();
     final byte[] randomConfigValue = new byte[16];
     new Random().nextBytes(randomConfigValue);
-    configuration = Arrays.toString(randomConfigValue);
+    configuration = new String(Base64.getEncoder().encode(randomConfigValue));
     System.out.println(configuration);
     return configuration;
   }
