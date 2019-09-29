@@ -21,9 +21,7 @@ public class PersonManagerImpl implements PersonManager {
 
   @Override
   public void deletePerson(final String email) {
-    final Optional<Person> personOptional = allUsers.stream()
-        .filter(p -> p.getEmail().equals(email))
-        .findFirst();
+    final Optional<Person> personOptional = findUserByEmail(email);
 
     if (personOptional.isPresent()) {
       allUsers.remove(personOptional.get());
@@ -43,12 +41,16 @@ public class PersonManagerImpl implements PersonManager {
 
   @Override
   public void validateEmail(final String email) {
-    final Optional<Person> personOptional = allUsers.stream()
-        .filter(p -> p.getEmail().equals(email))
-        .findFirst();
+    final Optional<Person> personOptional = findUserByEmail(email);
 
     if (personOptional.isPresent()) {
       personOptional.get().setVerified(true);
     }
+  }
+
+  private Optional<Person> findUserByEmail(final String email) {
+    return allUsers.stream()
+        .filter(p -> p.getEmail().equals(email))
+        .findFirst();
   }
 }
