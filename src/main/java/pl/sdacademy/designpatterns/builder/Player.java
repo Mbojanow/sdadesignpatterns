@@ -68,5 +68,31 @@ public class Player {
       this.health = health;
       return this;
     }
+
+    public Builder withMana(final Integer mana) {
+      this.mana = mana;
+      return this;
+    }
+
+    public Builder withLevel(final Long level) {
+      this.level = level;
+      return this;
+    }
+
+    public Builder withUsername(final String username) {
+      this.username = username;
+      return this;
+    }
+
+    public Builder withFriends(final List<String> friends) {
+      this.friends = friends;
+      return this;
+    }
+
+    public Player build() {
+      // klasa w klasie -> wykorzystujemy protected konstruktor
+      return new Player(this.health, this.mana, this.level, this.username, this.friends);
+    }
+
   }
 }
