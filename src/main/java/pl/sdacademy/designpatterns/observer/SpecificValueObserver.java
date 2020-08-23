@@ -1,0 +1,14 @@
+package pl.sdacademy.designpatterns.observer;
+
+public class SpecificValueObserver extends Observer {
+
+  public SpecificValueObserver(final Subject subject) {
+    super(subject);
+  }
+
+  @Override
+  public void update() {
+    System.out.println("SVO: value changed and is now "
+        + subject.getValue());
+  }
+}
