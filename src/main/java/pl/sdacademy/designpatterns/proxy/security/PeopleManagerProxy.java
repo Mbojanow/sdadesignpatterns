@@ -15,21 +15,25 @@ public class PeopleManagerProxy implements PeopleManager {
   @Override
   public void addPerson(final Person person) {
       // czy currentPerson ma WRITE AccessType?
-    if (currentPerson.getRole().getAccessTypes().contains(AccessType.WRITE)) {
+    if (hasAccessType(AccessType.WRITE)) {
       peopleManager.addPerson(person);
     }
   }
 
+  private boolean hasAccessType(final AccessType accessType) {
+    return currentPerson.getRole().getAccessTypes().contains(accessType);
+  }
+
   @Override
   public void deletePerson(final String email) {
-    if (currentPerson.getRole().getAccessTypes().contains(AccessType.WRITE)) {
+    if (hasAccessType(AccessType.WRITE)) {
       peopleManager.deletePerson(email);
     }
   }
 
   @Override
   public List<Person> getAllPeople() {
-    if (currentPerson.getRole().getAccessTypes().contains(AccessType.READ)) {
+    if (hasAccessType(AccessType.READ)) {
       return peopleManager.getAllPeople();
     }
     //throw new RuntimeException("Lack of READ access type");
@@ -38,7 +42,7 @@ public class PeopleManagerProxy implements PeopleManager {
 
   @Override
   public boolean isPersonPresent(final String name) {
-    if (currentPerson.getRole().getAccessTypes().contains(AccessType.READ)) {
+    if (hasAccessType(AccessType.READ)) {
       return peopleManager.isPersonPresent(name);
     }
     return false;
@@ -46,7 +50,7 @@ public class PeopleManagerProxy implements PeopleManager {
 
   @Override
   public void validateEmail(final String email) {
-    if (currentPerson.getRole().getAccessTypes().contains(AccessType.WRITE)) {
+    if (hasAccessType(AccessType.WRITE)) {
       peopleManager.validateEmail(email);
     }
   }

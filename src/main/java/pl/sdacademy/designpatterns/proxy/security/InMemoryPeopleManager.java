@@ -2,6 +2,8 @@ package pl.sdacademy.designpatterns.proxy.security;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Stream;
 
 public class InMemoryPeopleManager implements PeopleManager {
 
@@ -16,14 +18,18 @@ public class InMemoryPeopleManager implements PeopleManager {
 
   @Override
   public void deletePerson(final String email) {
-    people.stream()
-        .filter(p -> p.getEmail().equals(email))
-        .findFirst().ifPresent(people::remove);
+    findPersonWithEmail(email).ifPresent(people::remove);
 
     //2 WERSJA - też okej
 //    if (people.stream().anyMatch(p -> p.getEmail().equals(email))) {
 //      people.removeIf(p -> p.getEmail().equals(email));
 //    }
+  }
+
+  private Optional<Person> findPersonWithEmail(final String email) {
+    return people.stream()
+        .filter(p -> p.getEmail().equals(email))
+        .findFirst();
   }
 
   @Override
@@ -38,9 +44,7 @@ public class InMemoryPeopleManager implements PeopleManager {
 
   @Override
   public void validateEmail(final String email) {
-    people.stream()
-        .filter(p -> p.getEmail().equals(email))
-        .findFirst()
+    findPersonWithEmail(email)
         .ifPresent(p -> p.setVerified(true));
   }
 }
