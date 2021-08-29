@@ -20,5 +20,7 @@ public class SingletonDemo {
         appConnectionsB.addUser("Kasia");
 
         appConnectionsA.getConnectedUsers().forEach(users -> System.out.println(users));
+
+        EnumSingleton instance = EnumSingleton.INSTANCE;
     }
 }

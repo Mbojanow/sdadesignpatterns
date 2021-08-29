@@ -8,8 +8,8 @@ public class AppConnections {
     private static AppConnections instance;
 
     public static AppConnections getInstance() {
-        if (instance == null) {
-            instance = new AppConnections();
+        if (instance == null) { // A // B
+            instance = new AppConnections(); // A
         }
         return instance;
     }
